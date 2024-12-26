@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>JavaScriptJourney</title>
+    <link href="https://github.com/KenDarkmode/myblog.git/feed.xml" rel="self" />
+    <link href="https://github.com/KenDarkmode/myblog.git" />
+    <updated>2024-12-20T00:22:25+07:00</updated>
+    <author>
+        <name>Nguyễn Anh Kiệt</name>
+    </author>
+    <id>https://github.com/KenDarkmode/myblog.git</id>
+
+    <entry>
+        <title>Bài 3: Cấu trúc điều kiện và vòng lặp</title>
+        <author>
+            <name>Nguyễn Anh Kiệt</name>
+        </author>
+        <link href="https://github.com/KenDarkmode/myblog.git/bai-3-cau-truc-dieu-kien-va-vong-lap.html"/>
+        <id>https://github.com/KenDarkmode/myblog.git/bai-3-cau-truc-dieu-kien-va-vong-lap.html</id>
+
+        <updated>2024-12-19T21:30:49+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Giới thiệu Trong lập trình Java, vòng lặp (loop) là một cấu trúc quan trọng giúp thực hiện một chuỗi các câu lệnh lặp đi lặp lại một số lần hoặc cho đến khi một điều kiện cụ thể thỏa mãn. Vòng lặp giúp tối&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1 id="_gioi-thieu-0">Giới thiệu</h1>
+<p>Trong lập trình Java, vòng lặp (loop) là một cấu trúc quan trọng giúp thực hiện một chuỗi các câu lệnh lặp đi lặp lại một số lần hoặc cho đến khi một điều kiện cụ thể thỏa mãn. Vòng lặp giúp tối ưu hóa việc lặp lại một tập hợp các hành động, giảm sự lặp code và làm cho chương trình trở nên mạch lạc và hiệu quả hơn.</p>
+<p>Java có 3 kỹ thuật lặp linh động. Bạn có thể sử dụng một trong ba vòng lặp sau:</p>
+<ul class="list">
+<li>
+<p>Vòng lặp while</p>
+</li>
+<li>
+<p>Vòng lặp do…while</p>
+</li>
+<li>
+<p>Vòng lặp for</p>
+</li>
+</ul>
+<p>Trong Java 5, vòng lặp <strong>foreach (hay enhanced for)</strong> đã được giới thiệu. Vòng lặp này</p>
+<p>được sử dụng chủ yếu cho các mảng.</p>
+<h1 id="_gioi-thieu-0">Vòng lặp While</h1>
+<p>Một vòng lặp while là một cấu trúc điều khiển cho phép bạn lặp đi lặp lại một tác vụ một số lần nào đó.</p>
+<p>Cú pháp của một vòng lặp while trong Java như sau:</p>
+<p><code>while(Bieu_thuc_boolean)<br>{<br>   //phan than vong lap<br>}<br></code></p>
+<p>Khi thực thi, nếu kết quả của <i>boolean_expression</i> là true, thì các hoạt động bên trong vòng lặp được thực thi. Nó sẽ tiếp tục khi nào mà kết quả expression này vẫn là true.</p>
+<p>Ở đây, điểm chính của vòng lặp <strong>while</strong> là vòng lặp có thể chưa từng chạy lần nào. Đó là khi expression được kiểm tra và kết quả là false, thân vòng lặp sẽ bị bỏ qua và lệnh đầu tiên sau vòng lặp while sẽ được thực thi.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Test {<br><br>   public static void main(String args[]) {<br>      int x = 10;<br><br>      while( x &lt; 20 ) {<br>         System.out.print("Gia tri cua x : " + x );<br>         x++;<br>         System.out.print("\n");<br>      }<br>   }<br>}<br></code>Chương trình Java trên sẽ cho kết quả:</p>
+<p><code>Gia tri cua x : 10<br>Gia tri cua x : 11<br>Gia tri cua x : 12<br>Gia tri cua x : 13<br>Gia tri cua x : 14<br>Gia tri cua x : 15<br>Gia tri cua x : 16<br>Gia tri cua x : 17<br>Gia tri cua x : 18<br>Gia tri cua x : 19<br></code></p>
+<p> </p>
+<h1>Vòng lặp do...while</h1>
+<p>Một vòng lặp do … while là tương tự như Vòng lặp do...while, ngoại trừ rằng phần thân của vòng lặp do…while được bảo đảm thực thi ít nhất một lần. Nói cách khác, vòng lặp do ... while thực hiện phần thân vòng lặp trước khi kiểm tra điều kiện.</p>
+<p>Cú pháp của vòng lặp do…while trong Java như sau:</p>
+<p><code>do {<br>    // Phần thân vòng lặp<br>} while (Bieu_thuc_boolean);<br></code></p>
+<p>Ghi chú rằng, <i>Bieu_thuc_boolean</i> xuất hiện tại phần cuối của vòng lặp, vì thế các lệnh trong vòng lặp thực thi một lần trước khi expression được kiểm tra.</p>
+<p>Nếu bieu_thuc_boolean là true, nó quay trở lại và các lệnh được thực thi lần nữa. Tiến trình này lặp đi lặp lại tới khi bieu_thuc_boolean là false.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Test {<br><br>   public static void main(String args[]) {<br>      int x = 10;<br><br>      do {<br>         System.out.print("Gia tri cua x : " + x );<br>         x++;<br>         System.out.print("\n");<br>      } while( x &lt; 20 );<br>   }<br>}<br></code>Chương trình Java trên sẽ cho kết quả sau:</p>
+<p><code>Gia tri cua x : 10<br>Gia tri cua x : 11<br>Gia tri cua x : 12<br>Gia tri cua x : 13<br>Gia tri cua x : 14<br>Gia tri cua x : 15<br>Gia tri cua x : 16<br>Gia tri cua x : 17<br>Gia tri cua x : 18<br>Gia tri cua x : 19<br></code></p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Bài 2: Các kiểu dữ liệu trong Java</title>
+        <author>
+            <name>Nguyễn Anh Kiệt</name>
+        </author>
+        <link href="https://github.com/KenDarkmode/myblog.git/bai-2-cac-kieu-du-lieu-trong-java.html"/>
+        <id>https://github.com/KenDarkmode/myblog.git/bai-2-cac-kieu-du-lieu-trong-java.html</id>
+
+        <updated>2024-12-19T21:28:47+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Kiểu dữ liệu trong Java Biến trên thực tế là bộ nhớ để lưu một giá trị nào đó. Khi khai báo biến tức là ta đang khai báo với hệ thống dành riêng không gian trong bộ nhớ. Dựa trên kiểu dữ liệu của&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1>Kiểu dữ liệu trong Java</h1>
+<p>Biến trên thực tế là bộ nhớ để lưu một giá trị nào đó. Khi khai báo biến tức là ta đang khai báo với hệ thống dành riêng không gian trong bộ nhớ. Dựa trên kiểu dữ liệu của một biến, hệ điều hành cấp phát bộ nhớ và quyết định cái gì có thể được lưu giữ trong bộ nhớ dành riêng đó.</p>
+<p>Trong Java có 2 kiểu dữ liệu có sẵn: Primitive (kiểu dữ liệu gốc) và Non-primitive (kiểu dữ liệu đối tượng)</p>
+<p>Trước khi đi vào giới thiệu chi tiết về từng kiểu dữ liệu, bạn có thể theo dõi bảng tóm tắt sau:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Kiểu dữ liệu</th>
+<th>Giá trị mặc định</th>
+<th>Kích cỡ mặc định</th>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+<td>1 bit</td>
+</tr>
+<tr>
+<td>char</td>
+<td>'\u0000'</td>
+<td>2 byte</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>0</td>
+<td>1 byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+<td>2 byte</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+<td>4 byte</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+<td>8 byte</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+<td>4 byte</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+<td>8 byte</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_kieu-primitive-1">Kiểu Primitive</h2>
+<h3 id="_1-boolean-2">1. Boolean</h3>
+<p>Đây là kiểu dữ liệu có bộ nhớ lưu trữ nhỏ nhất, chỉ có 1 bit. Kiểu dữ liệu này được dùng để lưu trữ hai trạng thái true hoặc false Giá trị mặc định là false.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        boolean extractAll = true;<br><br>        // Kiểm tra và in kết quả<br>        System.out.println(extractAll ? "Trích xuất thành công!" : "Trích xuất thất bại.");<br>    }<br>}<br></code></p>
+<p> </p>
+<h3 id="_2-char-3">2. Char</h3>
+<p>Kiểu dữ liệu này có thể dùng để lưu kí tự hoặc số nguyên không âm, có kích thước 2 byte. Giá trị nhỏ nhất là '\u0000' (hoặc 0) và giá trị lớn nhất là '\uffff' (hoặc 65,535).</p>
+<p>code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        char name = 'A';<br><br>        // In giá trị của biến name<br>        System.out.println("Ký tự: " + name);<br>    }<br>}<br></code></p>
+<h3 id="_3-byte-4">3. Byte</h3>
+<p>Kiểu dữ liệu này dùng để lưu số nguyên (âm hoặc dương), có kích thước 1 byte. Giá trị nhỏ nhất là -128 (-2^7) và giá trị lớn nhất là 127 (2^7 -1) Giá trị mặc định là 0.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        byte x = 1, y = -1;<br><br>        // In giá trị của x và y<br>        System.out.println("Giá trị của x: " + x);<br>        System.out.println("Giá trị của y: " + y);<br>    }<br>}<br></code></p>
+<h3 id="_4-short-5">4. Short</h3>
+<p>Dùng để lưu dữ liệu có kiểu số nguyên, nhưng kích cỡ lớn hơn byte. Bộ nhớ kiểu dữ liệu này là 2 byte. Giá trị nhỏ nhất là -32,768 (-2^15) và giá trị lớn nhất là 32,767 (2^15 -1) Giá trị mặc định là 0.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        short t = 50, z = -50;<br><br>        // In giá trị của t và z<br>        System.out.println("Giá trị của t: " + t);<br>        System.out.println("Giá trị của z: " + z);<br>    }<br>}<br></code></p>
+<h3 id="_5-int-6">5. Int</h3>
+<p>Đây cũng là kiểu dữ liệu dùng để lưu kiểu số nguyên, kích cỡ 4 byte (lớn hơn byte và short). Giá trị nhỏ nhất là - 2,147,483,648.(-2^31) và giá trị lớn nhất là 2,147,483,647 (2^31 -1) Thông thường, int được sử dụng làm kiểu dữ liệu mặc định cho các giá trị nguyên. Giá trị mặc định là 0.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        int a = 500, b = -500;<br><br>        // In giá trị của a và b<br>        System.out.println("Giá trị của a: " + a);<br>        System.out.println("Giá trị của b: " + b);<br>    }<br>}<br></code></p>
+<h3 id="_6-long-7">6. Long</h3>
+<p>Kiểu dữ liệu dùng để lưu số nguyên lớn nhất là Long. Kích cỡ của nó lên đến 8 byte. Giá trị nhỏ nhất là -9,223,372,036,854,775,808.(-2^63) và lớn nhất là 9,223,372,036,854,775,807 (2^63 -1) Kiểu này được sử dụng khi cần một dải giá trị rộng hơn int. Giá trị mặc định là 0L.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        long a = 100000L; <br>        long b = -100000L;<br><br>        // In giá trị của a và b<br>        System.out.println("Giá trị của a: " + a);<br>        System.out.println("Giá trị của b: " + b);<br>    }<br>}<br></code></p>
+<h3 id="_7-float-8">7. Float</h3>
+<p>Float là kiểu dữ liệu lưu số thực, kích cỡ 4 byte. Giá trị mặc định là 0.0f. Kiểu Float không bao giờ được sử dụng cho các giá trị chính xác như currency.</p>
+<p>Code ví dụ:</p>
+<p><code>public class Main {<br>    public static void main(String[] args) {<br>        float jpy = 22.2f;<br><br>        // In giá trị của jpy<br>        System.out.println("Giá trị của jpy: " + jpy);<br>    }<br>}<br></code></p>
+<h3 id="_8-double-9">8. Double</h3>
+<p>Double cũng là kiểu dữ liệu để lưu số thực, nhưng kích thước dữ liệu lớn hơn Float. Bộ nhớ của nó là 8 byte. Thông thường, kiểu dữ liệu này được sử dụng làm kiểu mặc định cho các giá trị decimal. Kiểu double cũng không bao giờ được sử dụng cho các giá trị chính xác như currency. Giá trị mặc định là 0.0d.</p>
+<p>Code ví dụ:</p>
+<p><strong><code>public class Main {<br>    public static void main(String[] args) {<br>        double ct = 676.7;<br><br>        // In giá trị của ct<br>        System.out.println("Giá trị của ct: " + ct);<br>    }<br>}<br></code></strong></p>
+<h2 id="_kieu-non---primitive-10">Kiểu Non - Primitive</h2>
+<p>Trong Java tồn tại kiểu biến đối tượng, được tạo bằng cách sử dụng các constructor đã được định nghĩa của các class. Chúng được sử dụng để truy cập các đối tượng. Những biến này được khai báo ở kiểu cụ thể và không thể thay đổi được</p>
+<p>Giá trị mặc định của kiểu biến đối tượng là null. Có thể sử dụng biến đối tượng để tham chiếu tới bất kỳ đối tượng nào trong kiểu được khai báo hoặc bất kỳ kiểu tương thích nào.</p>
+<h3 id="_8-double-9">1.String</h3>
+<p> string là một kiểu dữ liệu dùng để lưu trữ và xử lý các chuỗi ký tự trong lập trình. Nó bao gồm một dãy các ký tự liên tiếp nhau, chẳng hạn như chữ cái, số, ký tự đặc biệt hoặc khoảng trắng.</p>
+<p>Code ví dụ:</p>
+<p><code>String message = "Hello, Java!";<br>System.out.println(message.length());  // Kết quả: 12<br></code></p>
+<h3 id="_8-double-9">2.Array</h3>
+<p>Array   là một cấu trúc dữ liệu dùng để lưu trữ nhiều giá trị trong cùng một biến, với các phần tử được sắp xếp theo thứ tự và có thể truy cập thông qua chỉ mục.</p>
+<p>Code ví dụ;</p>
+<p><strong><code>public class Main {<br>    public static void main(String[] args) {<br>        // Khai báo và khởi tạo mảng<br>        int[] numbers = {1, 2, 3, 4, 5};<br><br>        // Duyệt mảng<br>        for (int i = 0; i &lt; numbers.length; i++) {<br>            System.out.println("Phần tử tại chỉ mục " + i + ": " + numbers[i]);<br>        }<br>    }<br>}<br></code></strong></p>
+<h3 id="_8-double-9"></h3>
+<p> </p>
+<h3> </h3>
+<p> </p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Bài 1: Giới thiệu về Java</title>
+        <author>
+            <name>Nguyễn Anh Kiệt</name>
+        </author>
+        <link href="https://github.com/KenDarkmode/myblog.git/gioi-thieu-ve-java-va-javascript.html"/>
+        <id>https://github.com/KenDarkmode/myblog.git/gioi-thieu-ve-java-va-javascript.html</id>
+
+        <updated>2024-12-19T20:46:21+07:00</updated>
+            <summary>
+                <![CDATA[
+                    JAVA là gì? Java là ngôn ngữ lập trình đa nền tảng (cross-platform), được phát triển bởi James Gosling tại Sun Microsystems (nay là Oracle Corporation). Ngôn ngữ lập trình này ra đời vào năm 1995 và được thiết kế để có thể chạy trên các&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2 id="article-detail-1"><strong>JAVA là gì?</strong></h2>
+<p>Java là ngôn ngữ lập trình đa nền tảng (cross-platform), được phát triển bởi James Gosling tại Sun Microsystems (nay là Oracle Corporation). Ngôn ngữ lập trình này ra đời vào năm 1995 và được thiết kế để có thể chạy trên các nền tảng khác nhau, từ máy tính cá nhân đến thiết bị di động, các máy chủ và thiết bị nhúng.</p>
+<p>Java sử dụng cấu trúc lập trình hướng đối tượng (object-oriented programming - OOP) và được xây dựng trên cơ sở của ngôn ngữ lập trình C++. Nó cung cấp một môi trường chạy ảo (virtual machine) gọi là Java Virtual Machine (JVM), giúp các chương trình Java có thể chạy trên nhiều nền tảng khác nhau mà không cần phải biên dịch lại.</p>
+<p>Hiện tại, Java là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, được sử dụng rộng rãi trong các ứng dụng di động, phát triển web, lập trình trên các thiết bị nhúng, máy tính cá nhân, máy chủ, game và nhiều lĩnh vực khác.</p>
+<h2 id="article-detail-1"><strong>Các tính năng của Java</strong></h2>
+<h3><strong>Đa nền tảng</strong></h3>
+<p>Java được thiết kế để có thể chạy trên nhiều nền tảng khác nhau, vì vậy nó rất phù hợp cho việc phát triển các ứng dụng đa nền tảng. Java sử dụng một máy ảo (JVM - Java Virtual Machine) để chạy mã nguồn, vì vậy mã nguồn được viết một lần và có thể chạy trên nhiều hệ điều hành khác nhau mà không cần thay đổi.</p>
+<h3><strong>Quản lý bộ nhớ tự động</strong></h3>
+<p>Java có tính năng tự động quản lý bộ nhớ, tức là nó tự động thu dọn các vùng nhớ không sử dụng nữa để giảm thiểu các lỗi bộ nhớ. Điều này giúp cho các ứng dụng được viết bằng Java có thể chạy ổn định và tránh các lỗi liên quan đến bộ nhớ.</p>
+<h3><strong>Hỗ trợ đa luồng</strong></h3>
+<p>Java có thể xử lý đa luồng, cho phép chương trình thực hiện nhiều tác vụ cùng một lúc. Điều này giúp cho các ứng dụng có thể chạy nhanh và hiệu quả hơn, đặc biệt là khi phải xử lý nhiều tác vụ cùng một lúc.</p>
+<h3><strong>Tính bảo mật cao</strong></h3>
+<p>Java có các tính năng bảo mật như kiểm tra kiểu tĩnh và kiểm tra lỗi trên đường dẫn. Java được thiết kế để giảm thiểu các lỗ hổng bảo mật và các vấn đề liên quan đến an ninh.</p>
+<h3><strong>Hỗ trợ các thư viện và công cụ phát triển mạnh mẽ</strong></h3>
+<p>Java có các thư viện tiêu chuẩn và các công cụ phát triển như IDE (Integrated Development Environment) để giúp các nhà phát triển tạo ra các ứng dụng dễ dàng hơn. Các thư viện và công cụ này cung cấp các tính năng như: tạo giao diện người dùng, xử lý dữ liệu, kết nối cơ sở dữ liệu và nhiều hơn nữa,...</p>
+<h3><strong>Tính di động</strong></h3>
+<p>Java được sử dụng rộng rãi trong lĩnh vực di động bao gồm: các thư viện hỗ trợ việc phát triển ứng dụng di động, đóng gói ứng dụng thành các file .jar hoặc .apk, cung cấp các tính năng như xử lý đa nhiệm, kết nối mạng và tích hợp với các thiết bị phần cứng như máy ảnh.</p>
+<h3><strong>Tính độc lập với nền tảng</strong></h3>
+<p>Java có thể chạy trên nhiều nền tảng khác nhau và không phụ thuộc vào bất kỳ nền tảng cụ thể nào. Điều này giúp cho các ứng dụng Java có thể được triển khai trên nhiều hệ thống khác nhau mà không cần sửa đổi mã nguồn.</p>
+<h3><strong>Tính kế thừa và đa hình</strong></h3>
+<p>Java là ngôn ngữ lập trình hướng đối tượng (OOP), vì vậy nó có các tính năng như kế thừa, đa hình và đóng gói. Các tính năng này giúp cho mã nguồn được tái sử dụng và giảm thiểu sự trùng lặp trong mã nguồn.</p>
+<h3><strong>Tính mở rộng</strong></h3>
+<p>Java có tính năng mở rộng, cho phép các nhà phát triển thêm các tính năng mới vào ngôn ngữ bằng cách tạo các thư viện và API riêng. Điều này giúp cho Java có thể được sử dụng trong nhiều lĩnh vực khác nhau và được phát triển theo các hướng khác nhau.</p>
+<h2 id="article-detail-2"><strong>Ưu &amp; nhược điểm của Java</strong></h2>
+<h3><strong>Ưu điểm của Java</strong></h3>
+<p>Độ tin cậy cao</p>
+<p>Tính đa nền tảng</p>
+<ul>
+<li>Quản lý bộ nhớ tự động</li>
+<li>Công cụ phát triển phong phú</li>
+<li>Hỗ trợ đa luồng</li>
+</ul>
+<h3><strong>Nhược điểm của Java</strong></h3>
+<ul>
+<li>Tốc độ chậm hơn so với các ngôn ngữ lập trình gần sát với phần cứng, chẳng hạn như C hoặc C++.</li>
+<li>Java có thể chạy trên nhiều nền tảng khác nhau, nhưng ứng dụng này có thể cần đến một trình biên dịch hoặc máy ảo Java riêng biệt để có thể chạy trên các thiết bị di động.</li>
+<li>Sử dụng bộ nhớ lớn hơn so với một số ngôn ngữ lập trình khác.</li>
+<li>Cú pháp phức tạp hơn so với một số ngôn ngữ lập trình khác.</li>
+</ul>
+<p> </p>
+<h2 id="article-detail-1"><strong>JAVA là gì?</strong></h2>
+<p>Java là ngôn ngữ lập trình đa nền tảng (cross-platform), được phát triển bởi James Gosling tại Sun Microsystems (nay là Oracle Corporation). Ngôn ngữ lập trình này ra đời vào năm 1995 và được thiết kế để có thể chạy trên các nền tảng khác nhau, từ máy tính cá nhân đến thiết bị di động, các máy chủ và thiết bị nhúng.</p>
+<p>Java sử dụng cấu trúc lập trình hướng đối tượng (object-oriented programming - OOP) và được xây dựng trên cơ sở của ngôn ngữ lập trình C++. Nó cung cấp một môi trường chạy ảo (virtual machine) gọi là Java Virtual Machine (JVM), giúp các chương trình Java có thể chạy trên nhiều nền tảng khác nhau mà không cần phải biên dịch lại.</p>
+<p>Hiện tại, Java là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, được sử dụng rộng rãi trong các ứng dụng di động, phát triển web, lập trình trên các thiết bị nhúng, máy tính cá nhân, máy chủ, game và nhiều lĩnh vực khác.</p>
+<h2 id="article-detail-1"><strong>Các tính năng của Java</strong></h2>
+<h3><strong>Đa nền tảng</strong></h3>
+<p>Java được thiết kế để có thể chạy trên nhiều nền tảng khác nhau, vì vậy nó rất phù hợp cho việc phát triển các ứng dụng đa nền tảng. Java sử dụng một máy ảo (JVM - Java Virtual Machine) để chạy mã nguồn, vì vậy mã nguồn được viết một lần và có thể chạy trên nhiều hệ điều hành khác nhau mà không cần thay đổi.</p>
+<h3><strong>Quản lý bộ nhớ tự động</strong></h3>
+<p>Java có tính năng tự động quản lý bộ nhớ, tức là nó tự động thu dọn các vùng nhớ không sử dụng nữa để giảm thiểu các lỗi bộ nhớ. Điều này giúp cho các ứng dụng được viết bằng Java có thể chạy ổn định và tránh các lỗi liên quan đến bộ nhớ.</p>
+<h3><strong>Hỗ trợ đa luồng</strong></h3>
+<p>Java có thể xử lý đa luồng, cho phép chương trình thực hiện nhiều tác vụ cùng một lúc. Điều này giúp cho các ứng dụng có thể chạy nhanh và hiệu quả hơn, đặc biệt là khi phải xử lý nhiều tác vụ cùng một lúc.</p>
+<h3><strong>Tính bảo mật cao</strong></h3>
+<p>Java có các tính năng bảo mật như kiểm tra kiểu tĩnh và kiểm tra lỗi trên đường dẫn. Java được thiết kế để giảm thiểu các lỗ hổng bảo mật và các vấn đề liên quan đến an ninh.</p>
+<h3><strong>Hỗ trợ các thư viện và công cụ phát triển mạnh mẽ</strong></h3>
+<p>Java có các thư viện tiêu chuẩn và các công cụ phát triển như IDE (Integrated Development Environment) để giúp các nhà phát triển tạo ra các ứng dụng dễ dàng hơn. Các thư viện và công cụ này cung cấp các tính năng như: tạo giao diện người dùng, xử lý dữ liệu, kết nối cơ sở dữ liệu và nhiều hơn nữa,...</p>
+<h3><strong>Tính di động</strong></h3>
+<p>Java được sử dụng rộng rãi trong lĩnh vực di động bao gồm: các thư viện hỗ trợ việc phát triển ứng dụng di động, đóng gói ứng dụng thành các file .jar hoặc .apk, cung cấp các tính năng như xử lý đa nhiệm, kết nối mạng và tích hợp với các thiết bị phần cứng như máy ảnh.</p>
+<h3><strong>Tính độc lập với nền tảng</strong></h3>
+<p>Java có thể chạy trên nhiều nền tảng khác nhau và không phụ thuộc vào bất kỳ nền tảng cụ thể nào. Điều này giúp cho các ứng dụng Java có thể được triển khai trên nhiều hệ thống khác nhau mà không cần sửa đổi mã nguồn.</p>
+<h3><strong>Tính kế thừa và đa hình</strong></h3>
+<p>Java là ngôn ngữ lập trình hướng đối tượng (OOP), vì vậy nó có các tính năng như kế thừa, đa hình và đóng gói. Các tính năng này giúp cho mã nguồn được tái sử dụng và giảm thiểu sự trùng lặp trong mã nguồn.</p>
+<h3><strong>Tính mở rộng</strong></h3>
+<p>Java có tính năng mở rộng, cho phép các nhà phát triển thêm các tính năng mới vào ngôn ngữ bằng cách tạo các thư viện và API riêng. Điều này giúp cho Java có thể được sử dụng trong nhiều lĩnh vực khác nhau và được phát triển theo các hướng khác nhau.</p>
+<h2 id="article-detail-2"><strong>Ưu &amp; nhược điểm của Java</strong></h2>
+<h3><strong>Ưu điểm của Java</strong></h3>
+<p>Độ tin cậy cao</p>
+<p>Tính đa nền tảng</p>
+<ul>
+<li>Quản lý bộ nhớ tự động</li>
+<li>Công cụ phát triển phong phú</li>
+<li>Hỗ trợ đa luồng</li>
+</ul>
+<h3><strong>Ví dụ về code của java</strong></h3>
+<p><strong>Chương Trình "Hello, World!</strong></p>
+<p><code>// Đây là chương trình Java đầu tiên của tôi<br>public class HelloWorld {<br><br>    // Phương thức chính, điểm bắt đầu của chương trình<br>    public static void main(String[] args) {<br>        // In ra màn hình dòng chữ "Hello, World!"<br>        System.out.println("Hello, World!");<br>    }<br>}<br></code><code><br></code></p>
+            ]]>
+        </content>
+    </entry>
+</feed>
